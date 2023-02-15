@@ -26,7 +26,7 @@ QEI rori1(  PD_2, PC_11, NC, 2048, QEI::X2_ENCODING);
 QEI rori2( PC_10, PC_12, NC, 2048, QEI::X2_ENCODING);
 QEI rori3( PA_13, PA_14, NC, 2048, QEI::X2_ENCODING);
 QEI rori4( PA_15,  PB_7, NC, 2048, QEI::X2_ENCODING);
-QEI rori5(  PH_0,  PH_1, NC, 2048, QEI::X2_ENCODING);
+QEI rori5(  PC_1,  PC_0, NC, 2048, QEI::X2_ENCODING);
 QEI rori6(  PC_3,  PA_4, NC, 2048, QEI::X2_ENCODING);
 
 int pulse1, pulse2, pulse3, pulse4, pulse5, pulse6;
@@ -47,21 +47,34 @@ int main (void){
     while (true){
         if ( sw1 == 1 || ps3.getButtonState(PS3::maru)){
             led1 = 1;
-        } else if ( sw2 == 1 || ps3.getButtonState(PS3::sikaku)){
-            led2 = 1;
-        } else if ( sw3 == 1 || ps3.getButtonState(PS3::sankaku)){
-            led3 = 1;
-        } else if ( sw4 == 1 || ps3.getButtonState(PS3::batu)){
-            led4 = 1;
-        } else if ( sw5 == 1 || ps3.getButtonState(PS3::batu)){
-            led5 = 1;
         } else {
             led1 = 0;
+        }
+
+        if ( sw2 == 1 || ps3.getButtonState(PS3::sikaku)){
+            led2 = 1;
+        } else {
             led2 = 0;
+        }
+
+        if ( sw3 == 1 || ps3.getButtonState(PS3::sankaku)){
+            led3 = 1;
+        } else {
             led3 = 0;
+        }
+
+        if ( sw4 == 1 || ps3.getButtonState(PS3::batu)){
+            led4 = 1;
+        } else {
             led4 = 0;
+        }
+
+        if ( sw5 == 1 || ps3.getButtonState(PS3::batu)){
+            led5 = 1;
+        } else {
             led5 = 0;
         }
+        
     }
 
 }
